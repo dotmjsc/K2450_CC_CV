@@ -34,7 +34,7 @@ Let's say you got the following application with:
 
 * VCC with 3.3V out from a LDO with 200mV drop
 
-* The application uses not more than 40mA
+* The application draws not more than 40mA
 
 So, the parameters should be:
 
@@ -78,7 +78,7 @@ With OK, the script starts discharging.
 
 ![](doc/run_abort.png)
 
-After completion it will display that it has finished with the total time and to total counted charge. You can always abort the script by turning the output OFF.
+After completion it will display "Done!", the total time and the total charge. You can always abort the script by turning the output OFF.
 
 ## Starting the script remotely
 
