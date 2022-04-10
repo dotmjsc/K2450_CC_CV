@@ -8,7 +8,7 @@
 
 * remotely controllable
 
-![](\doc\application.png)
+![](doc\application.png)
 
 In the example above, the script is used to evaluate a fuel gauge in conjunction with a 1000mAh Li-Po cell.
 
@@ -16,7 +16,7 @@ In the example above, the script is used to evaluate a fuel gauge in conjunction
 
 This script is especially made for fast, but accurate discharging to get the usable battery capacity for your real-world application.
 
-![](\doc\disc_curves.png)
+![](doc\disc_curves.png)
 
 Take a look at above exemplary discharge curves for a Li-Ion battery. Let's say your application draws no more than 40mA and works down to 3.5V. You want to know how long your unknown battery lasts for this application. 
 
@@ -48,35 +48,35 @@ This is how you set up the script. First transfer the script to your SMU and sta
 
 Menu - Scripts - Run
 
-![](\doc\run_script.png)
+![](doc\run_script.png)
 
 Then enter the voltage where you will charge / discharge the cell to. In this case it is the UVLO threshold as calculated above.
 
-![](\doc\target_voltage.png)
+![](doc\target_voltage.png)
 
 You'll have to set the voltage range manually, since the script has no means to know the open circuit voltage (OCV) of your cell. For this application, since the OCV of a lithium cell is usually 4.2V, the range of 20V is chosen.
 
-![](\doc\range.png) 
+![](doc\range.png) 
 
 Next, you'll be asked for a current limit. For the above case with a 1000mAh cell, a discharge current of 1C (1000mA) is a safe value.
 
-![](\doc\curr_limit.png)
+![](doc\curr_limit.png)
 
 After that you'll enter a stop current where charging or discharging ends. Four our example we use the application current of 40mA.
 
-![](\doc\stop_curr.png)
+![](doc\stop_curr.png)
 
 After that you'll get a question prompt if you want to set a specific amount of charge that should be charged or discharged. Since, for our example, we want to fully drain the battery, we choose No.
 
-![](\doc\disc_liimit.png)
+![](doc\disc_liimit.png)
 
 After this, you'll be prompted to confirm.
 
-![](\doc\confirm.png)
+![](doc\confirm.png)
 
 With OK, the script starts discharging. 
 
-![](\doc\run_abort.png)
+![](doc\run_abort.png)
 
 After completion it will display that it has finished with the total time and to total counted charge. You can always abort the script by turning the output OFF.
 
