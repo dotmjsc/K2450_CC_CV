@@ -44,7 +44,7 @@ So, the parameters should be:
 
 * End current 40mA
 
-This is how you set up the script. First transfer the script to your SMU and start it with
+This is how you set up the script. First transfer the script (**CC_CV.tsp**) to your SMU and start it with
 
 Menu - Scripts - Run
 
