@@ -52,7 +52,7 @@ Menu - Scripts - Run
 
 Then enter the voltage where you will charge / discharge the cell to. In this case it is the UVLO threshold as calculated above.
 
-![](doc\target_voltage.png)
+![](doc/target_voltage.png)
 
 You'll have to set the voltage range manually, since the script has no means to know the open circuit voltage (OCV) of your cell. For this application, since the OCV of a lithium cell is usually 4.2V, the range of 20V is chosen.
 
