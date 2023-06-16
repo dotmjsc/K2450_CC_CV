@@ -140,7 +140,7 @@ defbuffer1.clear()
 
 display.changescreen(display.SCREEN_USER_SWIPE)
 
-while smu.source.output == smu.ON do
+while break_sign == 0 do
     secs_old = secs
     frac_old = frac
     current_rdg, secs, frac = smu.measure.readwithtime(defbuffer1)
@@ -162,14 +162,34 @@ while smu.source.output == smu.ON do
     	 break_sign = 1
    		end
    	
-   	if (break_sign == 1)then
-    	 smu.source.output = smu.OFF    	 
-   		end
-   
     end
 
 -- display the results
-display.settext(display.TEXT2, "Time: "..string.format("%d",math.abs(timestart - (secs + frac))).."s     ".. "Done!" )
+display.settext(display.TEXT2, "Time: "..string.format("%d",math.abs(timestart - (secs + frac))).."s     ".. "Done! Monitoring Voltage." )
+
+smu.source.output = smu.OFF
+
+--set the output current to exactly zero and keep output on to avoid discharging the battery
+smu.source.autorange = smu.OFF
+smu.source.func = smu.FUNC_DC_CURRENT
+smu.source.range = 0.001
+smu.source.vlimit.level = target_voltage_range
+smu.source.level = 0.0
+smu.source.readback = smu.ON
+
+--measure battery voltage while waiting for user to turn off the script
+smu.measure.func = smu.FUNC_DC_VOLTAGE
+smu.measure.terminals = smu.TERMINALS_FRONT
+smu.measure.autorange = smu.ON
+smu.measure.nplc = 10
+smu.source.highc = smu.OFF
+smu.measure.sense = smu.SENSE_2WIRE
+
+smu.source.output = smu.ON
+
+while smu.source.output == smu.ON do
+    current_rdg, secs, frac = smu.measure.readwithtime(defbuffer1)
+end
 
 -- assert the opc bit in status.standard.event register
 opc()
